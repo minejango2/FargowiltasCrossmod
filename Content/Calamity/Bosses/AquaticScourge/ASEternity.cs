@@ -459,7 +459,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.AquaticScourge
             if (npc.type == ModContent.NPCType<AquaticScourgeHead>() && (npc.justHit || npc.life <= npc.lifeMax * 0.999 || BossRushEvent.BossRushActive || Main.getGoodWorld))
             {
                 npc.boss = true;
-                npc.damage = npc.GetAttackDamage_ScaledByStrength(60);
+                npc.damage = npc.GetAttackDamage_ScaledByStrength(80);
                 if (BossRushEvent.BossRushActive) npc.damage = npc.GetAttackDamage_ScaledByStrength(300);
                 npc.dontTakeDamage = true;
                 npc.CalamityDLC().ImmuneToAllDebuffs = true;

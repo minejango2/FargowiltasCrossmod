@@ -165,6 +165,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.Perforators
             {
                 NPC.lifeMax = 5000000;
             }
+            NPC.damage = 60;
             NPC.Opacity = 0;
             NPC.dontTakeDamage = true;
 

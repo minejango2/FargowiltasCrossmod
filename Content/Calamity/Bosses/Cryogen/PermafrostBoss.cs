@@ -57,7 +57,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.Cryogen
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             NPC.boss = true;
-            NPC.damage = 70;
+            NPC.damage = 77;
             Music = MusicLoader.GetMusicSlot("FargowiltasCrossmod/Assets/Music/Niflheimr");
 
             if (BossRushEvent.BossRushActive)

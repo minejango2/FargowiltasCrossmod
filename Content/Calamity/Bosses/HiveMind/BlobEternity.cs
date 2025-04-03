@@ -51,6 +51,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.HiveMind
                 }
             }
             NPC.lifeMax = (int)(NPC.lifeMax * healthMult);
+            NPC.damage = 60;
         }
         public override void OnSpawn(IEntitySource source)
         {
@@ -315,9 +316,8 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.HiveMind
                         playerX *= playerDist;
                         playerY *= playerDist;
                         int type = ModContent.ProjectileType<VileClotDrop>();
-                        int damage = NPC.GetProjectileDamage(type);
                         Vector2 projectileVelocity = new Vector2(playerX, playerY);
-                        Projectile.NewProjectile(NPC.GetSource_FromAI(), projDirection, projectileVelocity * 0.2f, type, damage, 0f, Main.myPlayer);
+                        Projectile.NewProjectile(NPC.GetSource_FromAI(), projDirection, projectileVelocity * 0.2f, type, FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer);
 
                         NPC.velocity -= projectileVelocity; // recoil
                         NPC.netUpdate = true;

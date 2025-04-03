@@ -218,8 +218,15 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
                         break;
                     case NPCID.Spazmatism:
                     case NPCID.Retinazer:
+                        npc.lifeMax = (int)(npc.lifeMax * 0.925f);
+                        npc.damage = 80;
+                        break;
                     case NPCID.SkeletronPrime:
+                        npc.lifeMax = (int)(npc.lifeMax * 0.925f);
+                        npc.damage = 80;
+                        break;
                     case NPCID.TheDestroyer:
+                        npc.damage = 80;
                         npc.lifeMax = (int)(npc.lifeMax * 0.925f);
                         break;
                     case NPCID.Plantera:
@@ -268,7 +275,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
             if (npc.type == ModContent.NPCType<CursedCoffin>() || npc.type == ModContent.NPCType<CursedSpirit>())
             {
                 npc.lifeMax = (int)(npc.lifeMax * 1.3f);
-                npc.damage = (int)(npc.damage * 1.15f);
+                npc.damage = 55;
                 calNPC.VulnerableToCold = true;
                 calNPC.VulnerableToSickness = false;
             }
@@ -277,6 +284,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
             if (npc.type == ModContent.NPCType<DeviBoss>())
             {
                 npc.lifeMax = (int)(npc.lifeMax * 1.3f);
+                npc.damage = 70;
                 calNPC.VulnerableToSickness = true;
             }
 
@@ -284,6 +292,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
             if (npc.type == ModContent.NPCType<BanishedBaron>())
             {
                 npc.lifeMax = (int)(npc.lifeMax * 1.3f);
+                npc.damage = 77;
                 calNPC.VulnerableToElectricity = true;
                 calNPC.VulnerableToWater = false;
                 calNPC.VulnerableToCold = false;
@@ -293,6 +302,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
             if (npc.type == ModContent.NPCType<LifeChallenger>())
             {
                 npc.lifeMax = (int)(npc.lifeMax * 1.3f);
+                npc.damage = 85;
                 calNPC.VulnerableToCold = false;
                 calNPC.VulnerableToElectricity = false;
                 calNPC.VulnerableToHeat = false;
