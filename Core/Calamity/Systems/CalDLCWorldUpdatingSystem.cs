@@ -34,6 +34,11 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
         {
             if (ModCompatibility.Calamity.Loaded)
             {
+                if (!Main.expertMode)
+                {
+                    CalDLCWorldSavingSystem.EternityRev = false;
+                    CalDLCWorldSavingSystem.EternityDeath = false;
+                }
                 if (WorldSavingSystem.EternityMode && !CalDLCWorldSavingSystem.EternityRev)
                 {
                     CalDLCWorldSavingSystem.EternityRev = true;
