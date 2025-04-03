@@ -162,7 +162,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
                 if (item.type == ItemType<OceanCrest>() || item.type == ItemType<AquaticEmblem>())
                     ItemBalance(tooltips, EModeChange.Buff, "OceanCrest", mod: "FargowiltasCrossmod");
                 if (item.type == ItemType<TheSponge>())
-                    ItemBalance(tooltips, EModeChange.Buff, "TheSponge", mod: "FargowiltasCrossmod");
+                    ItemBalance(tooltips, EModeChange.Nerf, "TheSponge", mod: "FargowiltasCrossmod");
             }
 
             float balance = BalanceChange(item);

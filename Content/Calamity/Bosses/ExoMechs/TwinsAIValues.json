@@ -2,7 +2,7 @@
   "BasicShotDamage": {
     "EternityRevValue": 300.0,
     "EternityDeathValue": 300.0,
-    "MasochistValue": 300.0
+    "MasochistValue": 450.0
   },
   "CloseShots_ApolloFireballShootSpeed": {
     "EternityRevValue": 33.0,

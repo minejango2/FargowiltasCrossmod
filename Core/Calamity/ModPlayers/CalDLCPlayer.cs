@@ -201,8 +201,8 @@ namespace FargowiltasCrossmod.Core.Calamity.ModPlayers
                     SpongeRechargeDelay_Normal = TheSponge.ShieldRechargeDelay;
                     CheckedSpongeTimes = true;
                 }
-                int rt = (int)(SpongeRechargeTime_Normal * 1.5f);
-                int rd = (int)(SpongeRechargeDelay_Normal * 1.5f);
+                int rt = (int)(SpongeRechargeTime_Normal * 1.25f);
+                int rd = (int)(SpongeRechargeDelay_Normal * 1.25f);
                 if (TheSponge.TotalShieldRechargeTime < rt)
                 TheSponge.TotalShieldRechargeTime = rt;
                 if (TheSponge.ShieldRechargeDelay < rd)
