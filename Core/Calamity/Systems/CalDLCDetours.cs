@@ -92,6 +92,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
     {
         // AI override
         // GlobalNPC
+        #pragma warning disable CS8601
         private static readonly MethodInfo CalamityPreAIMethod = typeof(CalamityGlobalNPC).GetMethod("PreAI", LumUtils.UniversalBindingFlags);
         private static readonly MethodInfo CalamityAIMethod = typeof(CalamityGlobalNPC).GetMethod("AI", LumUtils.UniversalBindingFlags);
         private static readonly MethodInfo CalamityOtherStatChangesMethod = typeof(CalamityGlobalNPC).GetMethod("OtherStatChanges", LumUtils.UniversalBindingFlags);
@@ -121,6 +122,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
         private static readonly MethodInfo TungstenIncreaseWeaponSizeMethod = typeof(TungstenEffect).GetMethod("TungstenIncreaseWeaponSize", LumUtils.UniversalBindingFlags);
         private static readonly MethodInfo TungstenNerfedProjMetod = typeof(TungstenEffect).GetMethod("TungstenNerfedProj", LumUtils.UniversalBindingFlags);
         private static readonly MethodInfo TungstenNeverAffectsProjMethod = typeof(TungstenEffect).GetMethod("TungstenNeverAffectsProj", LumUtils.UniversalBindingFlags);
+        private static readonly MethodInfo CalcAdamantiteAttackSpeedMethod = typeof(AdamantiteEffect).GetMethod("CalcAdamantiteAttackSpeed", LumUtils.UniversalBindingFlags);
         private static readonly MethodInfo ModifyHurtInfo_CalamityMethod = typeof(CalamityPlayer).GetMethod("ModifyHurtInfo_Calamity", LumUtils.UniversalBindingFlags);
         private static readonly MethodInfo MinimalEffects_Method = typeof(ToggleBackend).GetMethod("MinimalEffects", LumUtils.UniversalBindingFlags);
         private static readonly MethodInfo BRDialogueTick_Method = typeof(BossRushDialogueSystem).GetMethod("Tick", LumUtils.UniversalBindingFlags);
@@ -175,6 +177,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
         public delegate float Orig_TungstenIncreaseWeaponSize(FargoSoulsPlayer modPlayer);
         public delegate bool Orig_TungstenNerfedProj(Projectile projectile);
         public delegate bool Orig_TungstenNeverAffectsProj(Projectile projectile);
+        public delegate void Orig_CalcAdamantiteAttackSpeed(Player player, Item item);
         public delegate void Orig_ModifyHurtInfo_Calamity(CalamityPlayer self, ref Player.HurtInfo info);
         public delegate void Orig_MinimalEffects(ToggleBackend self);
         public delegate void Orig_BRDialogueTick();
@@ -237,6 +240,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
             HookHelper.ModifyMethodWithDetour(TungstenIncreaseWeaponSizeMethod, TungstenIncreaseWeaponSize_Detour);
             HookHelper.ModifyMethodWithDetour(TungstenNerfedProjMetod, TungstenNerfedProj_Detour);
             HookHelper.ModifyMethodWithDetour(TungstenNeverAffectsProjMethod, TungstenNeverAffectsProj_Detour);
+            HookHelper.ModifyMethodWithDetour(CalcAdamantiteAttackSpeedMethod, CalcAdamantiteAttackSpeed_Detour);
             HookHelper.ModifyMethodWithDetour(ModifyHurtInfo_CalamityMethod, ModifyHurtInfo_Calamity_Detour);
             HookHelper.ModifyMethodWithDetour(MinimalEffects_Method, MinimalEffects_Detour);
             HookHelper.ModifyMethodWithDetour(BRDialogueTick_Method, DialogueReplacement);
@@ -663,6 +667,19 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
             if (CalDLCSets.Projectiles.TungstenExclude[projectile.type])
                 return true;
             return value;
+        }
+        internal static void CalcAdamantiteAttackSpeed_Detour(Orig_CalcAdamantiteAttackSpeed orig, Player player, Item item)
+        {
+            bool homing = false;
+            if (item.shoot > ProjectileID.None)
+            {
+                homing = ProjectileID.Sets.CultistIsResistantTo[item.shoot];
+                if (item.ModItem != null && item.ModItem.Mod.Name == ModCompatibility.Calamity.Name)
+                    ProjectileID.Sets.CultistIsResistantTo[item.shoot] = true;
+            }
+            orig(player, item);
+            if (item.shoot > ProjectileID.None)
+                ProjectileID.Sets.CultistIsResistantTo[item.shoot] = homing;
         }
         internal static void ModifyHurtInfo_Calamity_Detour(Orig_ModifyHurtInfo_Calamity orig, CalamityPlayer self, ref Player.HurtInfo info)
         {
