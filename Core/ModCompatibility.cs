@@ -20,7 +20,7 @@ public static class ModCompatibility
         {
             get
             {
-                mod ??= ModLoader.GetMod(Name) as FargowiltasSouls.FargowiltasSouls;
+                mod ??= (FargowiltasSouls.FargowiltasSouls)ModLoader.GetMod(Name);
                 return mod;
             }
         }
