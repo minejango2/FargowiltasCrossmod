@@ -99,7 +99,11 @@ namespace FargowiltasCrossmod.Core.Calamity.ModPlayers
         }
         public override void PreUpdateMovement()
         {
-
+            if (WorldSavingSystem.EternityMode && Player.Calamity().ExoChair)
+            {
+                Main.NewText("chair gaming");
+                Player.velocity *= 0.6f;
+            }
         }
 
         [JITWhenModsEnabled(ModCompatibility.Calamity.Name)]
@@ -397,6 +401,10 @@ namespace FargowiltasCrossmod.Core.Calamity.ModPlayers
                     Player.lifeRegen = cap;
             }
             base.UpdateBadLifeRegen();
+        }
+        public override void PostUpdateRunSpeeds()
+        {
+            
         }
         [JITWhenModsEnabled(ModCompatibility.Calamity.Name)]
         public override float UseSpeedMultiplier(Item item)

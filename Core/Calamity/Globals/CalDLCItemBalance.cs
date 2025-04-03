@@ -1,5 +1,6 @@
 ﻿using CalamityMod.Items;
 using CalamityMod.Items.Accessories;
+using CalamityMod.Items.Mounts;
 using CalamityMod.Items.Weapons.Magic;
 using CalamityMod.Items.Weapons.Melee;
 using CalamityMod.Items.Weapons.Ranged;
@@ -162,6 +163,8 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
                 if (item.type == ItemType<OceanCrest>() || item.type == ItemType<AquaticEmblem>())
                     ItemBalance(tooltips, EModeChange.Buff, "OceanCrest", mod: "FargowiltasCrossmod");
                 if (item.type == ItemType<TheSponge>())
+                    ItemBalance(tooltips, EModeChange.Nerf, "TheSponge", mod: "FargowiltasCrossmod");
+                if (item.type == ItemType<ExoThrone>())
                     ItemBalance(tooltips, EModeChange.Nerf, "TheSponge", mod: "FargowiltasCrossmod");
             }
 
