@@ -54,7 +54,10 @@ namespace FargowiltasCrossmod.Core.Calamity.ModPlayers
     {
         public bool CalamitousPresence;
         public bool CheckedWrathOldDuke;
-        //Unique accessories fields
+
+        public static int SpongeRechargeTime_Normal = 0;
+        public static int SpongeRechargeDelay_Normal = 0;
+        public static bool CheckedSpongeTimes = false;
 
         public override void ResetEffects()
         {
@@ -189,6 +192,22 @@ namespace FargowiltasCrossmod.Core.Calamity.ModPlayers
 
             if (calamityPlayer.luxorsGift && Player.HeldItem != null && Player.HeldItem.type == ItemType<KamikazeSquirrelStaff>())
                 calamityPlayer.luxorsGift = false;
+
+            if (WorldSavingSystem.EternityMode)
+            {
+                if (!CheckedSpongeTimes)
+                {
+                    SpongeRechargeTime_Normal = TheSponge.TotalShieldRechargeTime;
+                    SpongeRechargeDelay_Normal = TheSponge.ShieldRechargeDelay;
+                    CheckedSpongeTimes = true;
+                }
+                int rt = (int)(SpongeRechargeTime_Normal * 1.5f);
+                int rd = (int)(SpongeRechargeDelay_Normal * 1.5f);
+                if (TheSponge.TotalShieldRechargeTime < rt)
+                TheSponge.TotalShieldRechargeTime = rt;
+                if (TheSponge.ShieldRechargeDelay < rd)
+                    TheSponge.ShieldRechargeDelay = rd;
+            }
 
         }
         public bool[] PreUpdateBuffImmune;
