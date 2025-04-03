@@ -633,6 +633,17 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
             {
                 return;
             }
+            //LeadingConditionRule postDoG = npcLoot.DefineConditionalDropSet(PostDog);
+            LeadingConditionRule emodeRule = new(new EModeDropCondition());
+            LeadingConditionRule pMoon = new LeadingConditionRule(new Conditions.PumpkinMoonDropGatingChance());
+            LeadingConditionRule fMoon = new LeadingConditionRule(new Conditions.FrostMoonDropGatingChance());
+            //LeadingConditionRule rev = npcLoot.DefineConditionalDropSet(Revenge);
+            LeadingConditionRule HardmodeRule(IItemDropRule condition)
+            {
+                var rule = new LeadingConditionRule(Condition.Hardmode.ToDropCondition(ShowItemDropInUI.Always));
+                rule.OnSuccess(condition);
+                return rule;
+            }
 
             #region Remove Drops
             int allowedRecursionDepth = 10;
@@ -667,14 +678,17 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
                     if (npc.type == NPCID.IchorSticker && commonDrop.itemId == ModContent.ItemType<IchorSpear>())
                     {
                         npcLoot.Remove(dropRule);
+                        npcLoot.Add(HardmodeRule(dropRule));
                     }
-                    if ((npc.type == NPCID.WyvernHead || npc.type == NPCID.AngryNimbus) && commonDrop.itemId == ModContent.ItemType<EssenceofSunlight>())
+                    if (commonDrop.itemId == ModContent.ItemType<EssenceofSunlight>())
                     {
                         npcLoot.Remove(dropRule);
+                        npcLoot.Add(HardmodeRule(dropRule));
                     }
                     if (npc.type == NPCID.SandElemental && (commonDrop.itemId == ModContent.ItemType<WifeinaBottle>() || commonDrop.itemId == ModContent.ItemType<WifeinaBottlewithBoobs>())) // ew ew e w ew
                     {
                         npcLoot.Remove(dropRule);
+                        npcLoot.Add(HardmodeRule(dropRule));
                     }
                 }
 
@@ -697,13 +711,6 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
                 //}
             }
             #endregion Remove Drops
-
-            //LeadingConditionRule postDoG = npcLoot.DefineConditionalDropSet(PostDog);
-            LeadingConditionRule emodeRule = new(new EModeDropCondition());
-            LeadingConditionRule pMoon = new LeadingConditionRule(new Conditions.PumpkinMoonDropGatingChance());
-            LeadingConditionRule fMoon = new LeadingConditionRule(new Conditions.FrostMoonDropGatingChance());
-            //LeadingConditionRule rev = npcLoot.DefineConditionalDropSet(Revenge);
-            LeadingConditionRule hardmode = new LeadingConditionRule(Condition.Hardmode.ToDropCondition(ShowItemDropInUI.Always));
 
             #region Crates
             if (npc.type == ModContent.NPCType<DesertScourgeHead>())
@@ -940,15 +947,6 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
             #endregion MasterModeDropsInRev
 
             #region PreHM progression break fixes
-            if (npc.type == NPCID.WyvernHead)
-            {
-                hardmode.OnSuccess(NormalVsExpertQuantity(ModContent.ItemType<EssenceofSunlight>(), 1, 8, 10, 10, 12));
-                npcLoot.Add(hardmode);
-            }
-            if (npc.type == NPCID.AngryNimbus)
-            {
-                npcLoot.Add(ItemDropRule.ByCondition(Condition.Hardmode.ToDropCondition(ShowItemDropInUI.Always), ModContent.ItemType<EssenceofSunlight>(), 2));
-            }
             if (npc.type == NPCID.SeekerHead)
             {
                 npcLoot.RemoveWhere(delegate (IItemDropRule rule)
@@ -959,17 +957,6 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
                 npcLoot.DefineConditionalDropSet(If(() => !death && (Condition.Hardmode.IsMet()), () => !death && (Condition.Hardmode.IsMet()), "")).Add(ItemID.CursedFlame, 1, 2, 5);
                 npcLoot.DefineConditionalDropSet(If(() => death && (Condition.Hardmode.IsMet()), () => death && (Condition.Hardmode.IsMet()), "")).Add(ItemID.CursedFlame, 1, 6, 15);
                 npcLoot.DefineConditionalDropSet(If(() => death && (Condition.Hardmode.IsMet()), () => death && (Condition.Hardmode.IsMet()), Language.GetTextValue("Mods.FargowiltasCrossmod.Conditions.InDeathMod"))).Add(ItemID.SoulofNight, 1, 4, 8);
-            }
-            if (npc.type == NPCID.SandElemental)
-            {
-                hardmode.OnSuccess(ItemDropRule.NormalvsExpert(ModContent.ItemType<WifeinaBottle>(), 5, 3));
-                hardmode.OnSuccess(ItemDropRule.NormalvsExpert(ModContent.ItemType<WifeinaBottlewithBoobs>(), 10, 6));
-                npcLoot.Add(hardmode);
-            }
-            if (npc.type == NPCID.IchorSticker)
-            {
-                hardmode.OnSuccess(ItemDropRule.NormalvsExpert(ModContent.ItemType<IchorSpear>(), 25, 15));
-                npcLoot.Add(hardmode);
             }
             #endregion
 
