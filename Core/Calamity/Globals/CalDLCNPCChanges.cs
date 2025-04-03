@@ -1011,7 +1011,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
             }
             if (DropsTeslaPotion.Contains(npc.type))
             {
-                TimsConcoctionDrop(ItemDropRule.Common(ModContent.ItemType<TeslaPotion>(), 1, 2, 6));
+                TimsConcoctionDrop(ItemDropRule.ByCondition(CalamityConditions.DownedHiveMindOrPerforator.ToDropCondition(ShowItemDropInUI.WhenConditionSatisfied), ModContent.ItemType<TeslaPotion>(), 1, 2, 6));
             }
             if (DropsZenPotion.Contains(npc.type))
             {
