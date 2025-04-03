@@ -47,6 +47,10 @@ namespace FargowiltasCrossmod.Content.Calamity.Items.Accessories.Enchantments
             //return true;
         }
         public override Color nameColor => new Color(240, 100, 75);
+        public override void SetStaticDefaults()
+        {
+            base.SetStaticDefaults();
+        }
         public override void SetDefaults()
         {
             base.SetDefaults();

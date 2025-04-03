@@ -101,7 +101,6 @@ namespace FargowiltasCrossmod.Core.Calamity.ModPlayers
         {
             if (WorldSavingSystem.EternityMode && Player.Calamity().ExoChair)
             {
-                Main.NewText("chair gaming");
                 Player.velocity *= 0.6f;
             }
         }
