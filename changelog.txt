@@ -1,2 +1,2 @@
-Patch 1.2.0.9
+Patch 1.2.0.10
 Text and localization fixes and updates
