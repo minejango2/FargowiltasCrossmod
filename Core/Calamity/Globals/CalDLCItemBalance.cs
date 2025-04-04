@@ -165,7 +165,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
                 if (item.type == ItemType<TheSponge>())
                     ItemBalance(tooltips, EModeChange.Nerf, "TheSponge", mod: "FargowiltasCrossmod");
                 if (item.type == ItemType<ExoThrone>())
-                    ItemBalance(tooltips, EModeChange.Nerf, "TheSponge", mod: "FargowiltasCrossmod");
+                    ItemBalance(tooltips, EModeChange.Nerf, "ExoBox", mod: "FargowiltasCrossmod");
             }
 
             float balance = BalanceChange(item);
