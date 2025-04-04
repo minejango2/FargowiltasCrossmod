@@ -14,8 +14,8 @@ LifeForce: Полёт ослаблен и время полёта уменьше
 OnionPackUpgrade: Слот совмещён с [i:FargowiltasSouls/MutantsPact]Договором Мутанта
 PactOnionUpgrade: Слот совмещён с [i:CalamityMod/CelestialOnion]Неземной луковицей и даёт полноценный слот для аксессуара
 Laudanum: Положительные эффекты дебаффов ослаблены вдвое
-// TheSponge: Increased recharge time and delay by 25%
-// ExoBox: Decreased speed by 40%
+TheSponge: Скорость восстановления и время перезарядки увеличены на 25%
+ExoBox: Скорость уменьшена на 40%
 HardmodeSwords: Улучшения характеристик ослаблены
 OceanCrest: Даёт иммунитет к водным дебаффам режима Вечность
 // truth be told I have absolutely no idea what this enchantment is so the key name is just that
