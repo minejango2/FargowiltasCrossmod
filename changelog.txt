@@ -1,14 +1,2 @@
 Patch 1.2.0.9
-Tweaked and standardized damage numbers of bosses: Crabulon, Cursed Coffin, Perforators, Hive Mind, Slime God, Deviantt, Banished Baron, Aquatic Scourge, Lifelight
-Fixed Exo Mechs not dealing more damage in Master Mode
-Calamitous Presence no longer disables dodges
-Eternity-Rev and Eternity-Death now disable themselves below Expert Mode
-All Calamity weapons count as homing for the sake of Adamantite Enchant (until they fix)
-Added Mantis Claws to reworked Broadswords list
-Desert Prowler Enchant: Dive now has a 1 second cooldown
-Tim's Concoction tesla potion drops are now post-Hive Mind/Perforators
-Fixed some unintended items (Essence of Sunlight) being droppable in prehardmode
-Fixed certain DLC enchants not floating
-Eternity Mode: 
--Increased The Sponge recharge time and delay by 25%
--Decreased Exo Box speed by 40%
+Text and localization fixes and updates
