@@ -9,7 +9,15 @@ public static class ModCompatibility
     {
         public const string Name = "Fargowiltas";
         public static bool Loaded => ModLoader.HasMod(Name);
-        public static Mod Mod => ModLoader.GetMod(Name);
+        private static Mod mod = null;
+        public static Mod Mod
+        {
+            get
+            {
+                mod ??= ModLoader.GetMod(Name);
+                return mod;
+            }
+        }
     }
     public static class SoulsMod
     {
