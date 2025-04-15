@@ -334,9 +334,9 @@ GaleForce: {
 		'''
 		Grants unlimited jumps in the air
 		Disables wings if this effect is enabled
-		[i:FargowiltasCrossmod/DesertProwlerEnchant] Hold W while jumping to launch upward quickly
-		[i:FargowiltasCrossmod/DesertProwlerEnchant] Hold S while jumping to dive downwards
-		[i:FargowiltasCrossmod/SnowRuffianEnchant] Hold W to slow fall
+		[i:FargowiltasCrossmod/DesertProwlerEnchant] Hold UP while jumping to launch upward quickly
+		[i:FargowiltasCrossmod/DesertProwlerEnchant] Hold DOWN while jumping to dive downwards
+		[i:FargowiltasCrossmod/SnowRuffianEnchant] Hold UP to slow fall
 		[i:FargowiltasCrossmod/VictideEnchant] Holding jump generates sharp spines attached to you
 		[i:FargowiltasCrossmod/VictideEnchant] Once 6 spines are spawned, the next jump launches them out to home onto targets
 		[i:FargowiltasCrossmod/SulphurEnchant] Spines inflict Sulphuric Poisoning

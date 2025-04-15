@@ -58,8 +58,6 @@ Buffs: {
 	}
 }
 
-Cooldowns.DaedalusPlatformCooldown: Daedalus Platform
-
 ExpandedTooltips: {
 	FountainAstral: Forces surrounding biome state to Astral Infection (in hardmode only) upon activation
 	FountainCrags: Forces surrounding biome state to Brimstone Crags upon activation
