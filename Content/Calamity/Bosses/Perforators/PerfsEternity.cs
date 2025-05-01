@@ -1,6 +1,7 @@
 ﻿using CalamityMod;
 using CalamityMod.Buffs.Potions;
 using CalamityMod.Events;
+using CalamityMod.NPCs;
 using CalamityMod.NPCs.Perforator;
 using CalamityMod.Particles;
 using CalamityMod.Projectiles.Boss;
@@ -432,6 +433,8 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.Perforators
         {
             if (!WorldSavingSystem.EternityMode) return true;
 
+            CalamityGlobalNPC.perfHive = NPC.whoAmI;
+
             if (NPC.target < 0 || Main.player[NPC.target] == null || Main.player[NPC.target].dead || !Main.player[NPC.target].active)
             {
                 NPC.TargetClosest();
@@ -449,6 +452,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.Perforators
                 Main.LocalPlayer.AddBuff(ModContent.BuffType<LowGroundBuff>(), 2);
 
             // maso passive
+            /*
             if (WorldSavingSystem.MasochistModeReal && NPC.HasPlayerTarget && State != (int)States.Opening)
             {
                 if (++PassiveRainTimer >= 25)
@@ -465,6 +469,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.Perforators
 
                 }
             }
+            */
 
             switch ((States)State)
             {
@@ -570,7 +575,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.Perforators
             float speed = 0.5f;
             if (Timer > 60)
                 speed += (Timer - 60) / 60f;
-            if (PhaseTwo)
+            if (PhaseTwo || WorldSavingSystem.MasochistModeReal)
                 speed *= 1.5f;
             if (!NPC.HasPlayerTarget)
                 return;
@@ -579,7 +584,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.Perforators
                 return;
             WalkToPositionAI(targetPos, speed);
             Timer++;
-            int minimumWait = PhaseTwo ? 35 : 60;
+            int minimumWait = PhaseTwo || WorldSavingSystem.MasochistModeReal ? 35 : 60;
             if (Timer < minimumWait)
                 return;
             if (Math.Abs(targetPos.X - NPC.Center.X) < leniency)
@@ -869,7 +874,8 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.Perforators
                     leg.SetAnimationEndAction((PerforatorLeg leg, NPC npc) =>
                     {
                         Vector2 endPoint = leg.GetEndPoint();
-                        Vector2 pos = Target.Center + Target.velocity * stabTime / 2;
+                        float divisor = WorldSavingSystem.MasochistModeReal ? 2 : 8;
+                        Vector2 pos = Target.Center + Target.velocity * stabTime / divisor;
                         pos += endPoint.DirectionTo(pos) * 80;
                         //pos = endPoint + endPoint.DirectionTo(pos) * 380;
                         leg.StartCustomAnimation(NPC, pos, 0.5f / stabTime, animationMode: PerforatorLeg.Accel, stepSound: true);
