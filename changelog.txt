@@ -1,2 +1,21 @@
-Patch 1.2.0.10
-Text and localization fixes and updates
+Patch 1.2.0.11
+
+Crossmod balance changes:
+- Dragon Rage: 0.7x damage
+- Ataraxia: 0.65x -> 0.7x damage
+- Abominationn: Health 3.4x -> 3x
+
+Eternity Perforators:
+-Decreased prediction strength for leg stab attack (except Masochist Mode)
+-Added faint glow outline to ichor projectiles
+-Removed passive ichor rain from Masochist Mode
+-Now has phase 2 increased speed in phase 1 aswell in Masochist Mode
+-Improved leg interaction with strange terrain (should do the weird "stretch through the ground" a lot less)
+
+Eternity Exo Mechs:
+-Decreased acceleration of supercharged blue tesla shots(increased in Masochist)
+-Decreased maximum speed of rockets during Ares background laser attack
+-Hades has no contact damage for 2 seconds after becoming active
+-Ares hands have no contact damage while charging up Ares/Twins plasma deathray chase attack
+-Increased time before Apollo starts rapid fire
+-Solo twins spend some time repositioning between each attack
