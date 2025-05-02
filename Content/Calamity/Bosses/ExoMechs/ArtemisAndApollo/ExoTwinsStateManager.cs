@@ -81,7 +81,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.ArtemisAndApollo
 
             if (SharedState.AIState == ExoTwinsAIState.PerformComboAttack)
                 SharedState.AITimer = ExoMechComboAttackManager.ComboAttackTimer;
-            else if (Main.netMode == NetmodeID.Server && SharedState.AITimer % 60 == 0)
+            else if (Main.netMode == NetmodeID.Server && SharedState.AITimer % 60 == 1)
                 PacketManager.SendPacket<ExoMechExoTwinStatePacket>();
         }
 
