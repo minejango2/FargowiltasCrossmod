@@ -85,6 +85,8 @@ namespace FargowiltasCrossmod.Content.Calamity.Items.Accessories.Enchantments
         
         public override void PostUpdateEquips(Player player)
         {
+            if (player.whoAmI != Main.myPlayer)
+                return;
             if (player.ownedProjectileCounts[ModContent.ProjectileType<AstralTrailStar>()] == 0)
             {
                 int damage = player.ForceEffect<AstralEffect>() ? 100 : 50;
