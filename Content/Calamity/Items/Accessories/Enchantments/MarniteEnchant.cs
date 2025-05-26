@@ -119,6 +119,9 @@ namespace FargowiltasCrossmod.Content.Calamity.Items.Accessories.Enchantments
         public override bool ExtraAttackEffect => true;
         public override void PostUpdateEquips(Player player)
         {
+            if (player.whoAmI != Main.myPlayer)
+                return;
+
             var addonPlayer = player.CalamityAddon();
             Item item = player.HeldItem;
             bool marniteExclusion = item != null && player.itemAnimation > 0 && CalDLCSets.Items.MarniteExclude[item.type];

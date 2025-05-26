@@ -92,6 +92,8 @@ namespace FargowiltasCrossmod.Content.Calamity.Items.Accessories.Enchantments
         public override bool ActiveSkill => true;
         public override void PostUpdateEquips(Player player)
         {
+            if (player.whoAmI != Main.myPlayer)
+                return;
             CalDLCAddonPlayer cd = player.GetModPlayer<CalDLCAddonPlayer>();
             int damage = player.ForceEffect<UmbraphileEffect>() ? 100 : 200;
             

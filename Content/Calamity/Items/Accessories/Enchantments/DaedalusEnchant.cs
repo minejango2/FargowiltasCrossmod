@@ -99,6 +99,8 @@ namespace FargowiltasCrossmod.Content.Calamity.Items.Accessories.Enchantments
         }
         public override void TryAdditionalAttacks(Player player, int damage, DamageClass damageType)
         {
+            if (player.whoAmI != Main.myPlayer)
+                return;
             var addonPlayer = player.CalamityAddon();
             if (addonPlayer.DaedalusTimer > WindupTime + 40)
             {

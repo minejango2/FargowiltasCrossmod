@@ -159,15 +159,18 @@ namespace FargowiltasCrossmod.Content.Calamity.Items.Accessories.Enchantments
                     bubble.Kill();
             }
             Vector2 vel = Vector2.UnitY * 2;
-            Projectile proj = Projectile.NewProjectileDirect(player.GetSource_EffectItem<SulphurEffect>(), player.Center, vel, ModContent.ProjectileType<SulphurBubble>(), bubbleDamage, 1, player.whoAmI);
-            if (player.ForceEffect<SulphurEffect>())
+            if (player.whoAmI == Main.myPlayer)
             {
-                for (int i = -1; i <= 1; i += 2)
-                    Projectile.NewProjectileDirect(player.GetSource_EffectItem<SulphurEffect>(), player.Center, Vector2.UnitX * i * 6f + vel, ModContent.ProjectileType<SulphurBubble>(), bubbleDamage, 1, player.whoAmI);
-            }
-            if (Main.netMode == NetmodeID.MultiplayerClient)
-            {
-                NetMessage.SendData(MessageID.SyncProjectile, number: proj.whoAmI);
+                Projectile proj = Projectile.NewProjectileDirect(player.GetSource_EffectItem<SulphurEffect>(), player.Center, vel, ModContent.ProjectileType<SulphurBubble>(), bubbleDamage, 1, player.whoAmI);
+                if (player.ForceEffect<SulphurEffect>())
+                {
+                    for (int i = -1; i <= 1; i += 2)
+                        Projectile.NewProjectileDirect(player.GetSource_EffectItem<SulphurEffect>(), player.Center, Vector2.UnitX * i * 6f + vel, ModContent.ProjectileType<SulphurBubble>(), bubbleDamage, 1, player.whoAmI);
+                }
+                if (Main.netMode == NetmodeID.MultiplayerClient)
+                {
+                    NetMessage.SendData(MessageID.SyncProjectile, number: proj.whoAmI);
+                }
             }
         }
         public override void ShowVisuals(Player player)

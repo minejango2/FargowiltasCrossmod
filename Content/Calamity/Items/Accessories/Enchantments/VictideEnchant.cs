@@ -90,6 +90,8 @@ namespace FargowiltasCrossmod.Content.Calamity.Items.Accessories.Enchantments
 
         public override void PostUpdateEquips(Player player)
         {
+            if (player.whoAmI != Main.myPlayer)
+                return;
             int damage;
             if (player.ForceEffect<VictideEffect>())
             {

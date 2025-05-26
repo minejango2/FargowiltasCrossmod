@@ -41,8 +41,8 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
             if (DLCSets.GetValue(DLCSets.Items.ChampionTierFargoWeapon, item.type))
                 return 0.8f;
 
-            if (item.type == ItemType<Ataraxia>())
-                return 0.65f;
+            if (item.type == ItemType<Ataraxia>() || item.type == ItemType<DragonRage>())
+                return 0.7f;
 
             //Shadowspec items and such
             // Melee

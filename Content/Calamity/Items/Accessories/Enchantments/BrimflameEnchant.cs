@@ -95,7 +95,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Items.Accessories.Enchantments
         {
             CalDLCAddonPlayer modplayer = player.CalamityAddon();
             
-            if (modplayer.BrimflameShootingTimer > 0 )
+            if (modplayer.BrimflameShootingTimer > 0 && player.whoAmI == Main.myPlayer)
             {
                 for (int i = 0; i < 10; i++)
                 {

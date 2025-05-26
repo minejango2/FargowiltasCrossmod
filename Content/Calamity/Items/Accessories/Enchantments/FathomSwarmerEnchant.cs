@@ -81,7 +81,8 @@ namespace FargowiltasCrossmod.Content.Calamity.Items.Accessories.Enchantments
 
         public override void PostUpdateEquips(Player player)
         {
-       
+            if (player.whoAmI != Main.myPlayer)
+                return;
             if (player.ownedProjectileCounts[ModContent.ProjectileType<FathomAngler>()] == 0)
             {
                 Projectile p = Projectile.NewProjectileDirect(player.GetSource_EffectItem<FathomSwarmerEffect>(), player.Center, Vector2.Zero, ModContent.ProjectileType<FathomAngler>(), 0, 0, player.whoAmI);
