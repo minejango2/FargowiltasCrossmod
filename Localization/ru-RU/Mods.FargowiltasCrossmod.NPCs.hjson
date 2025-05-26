@@ -6,7 +6,7 @@ LargePerforatorTail.DisplayName: Большой Перфоратор
 PermafrostBoss.DisplayName: Пермафрост
 
 AresHand: {
-	DisplayName: Рука Арес
+	DisplayName: Рука Ареса
 	EnergyKatanaDisplayName: Энергетическая катана ВУ-09 Ареса
 	PulseCannonDisplayName: Пульс-пушка ВУ-09 Ареса
 }
