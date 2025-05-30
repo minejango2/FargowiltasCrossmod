@@ -138,7 +138,6 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
             Add("Archmage", NPCType<DILF>());
             Add("SeaKing", NPCType<SEAHOE>());
             Add("Bandit", NPCType<THIEF>());
-            Add("DrunkPrincess", NPCType<FAP>());
             Add("BrimstoneWitch", NPCType<WITCH>());
         }
         public static void Add(string internalName, int id)

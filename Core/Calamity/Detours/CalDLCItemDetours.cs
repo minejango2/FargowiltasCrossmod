@@ -54,8 +54,6 @@ namespace FargowiltasCrossmod.Core.Calamity.Detours
             HookHelper.ModifyMethodWithDetour(TungstenIncreaseWeaponSizeMethod, TungstenIncreaseWeaponSize_Detour);
             HookHelper.ModifyMethodWithDetour(TungstenNeverAffectsProjMethod, TungstenNeverAffectsProj_Detour);
 
-            HookHelper.ModifyMethodWithDetour(CalcAdamantiteAttackSpeedMethod, CalcAdamantiteAttackSpeed_Detour);
-
             HookHelper.ModifyMethodWithDetour(StarterBag_ModifyItemLoot_Method, StarterBag_ModifyItemLoot_Detour);
             HookHelper.ModifyMethodWithDetour(FargosSouls_DropDevianttsGift_Method, FargosSouls_DropDevianttsGift_Detour);
 
@@ -95,21 +93,6 @@ namespace FargowiltasCrossmod.Core.Calamity.Detours
             return value;
         }
 
-        private static readonly MethodInfo CalcAdamantiteAttackSpeedMethod = typeof(AdamantiteEffect).GetMethod("CalcAdamantiteAttackSpeed", LumUtils.UniversalBindingFlags);
-        public delegate void Orig_CalcAdamantiteAttackSpeed(Player player, Item item);
-        internal static void CalcAdamantiteAttackSpeed_Detour(Orig_CalcAdamantiteAttackSpeed orig, Player player, Item item)
-        {
-            bool homing = false;
-            if (item.shoot > ProjectileID.None)
-            {
-                homing = ProjectileID.Sets.CultistIsResistantTo[item.shoot];
-                if (item.ModItem != null && item.ModItem.Mod.Name == ModCompatibility.Calamity.Name)
-                    ProjectileID.Sets.CultistIsResistantTo[item.shoot] = true;
-            }
-            orig(player, item);
-            if (item.shoot > ProjectileID.None)
-                ProjectileID.Sets.CultistIsResistantTo[item.shoot] = homing;
-        }
         private static readonly MethodInfo StarterBag_ModifyItemLoot_Method = typeof(StarterBag).GetMethod("ModifyItemLoot", LumUtils.UniversalBindingFlags);
         public delegate void Orig_StarterBag_ModifyItemLoot(StarterBag self, ItemLoot itemLoot);
         internal static void StarterBag_ModifyItemLoot_Detour(Orig_StarterBag_ModifyItemLoot orig, StarterBag self, ItemLoot itemLoot)
@@ -235,16 +218,6 @@ namespace FargowiltasCrossmod.Core.Calamity.Detours
             }
 
             itemLoot.AddIf(getsOracleHeadphones, ModContent.ItemType<OracleHeadphones>());
-
-            // Fabsol dev item
-            // Name specific: "Fabsol" or "Cirrus"
-            static bool getsCrystalHeartVodka(DropAttemptInfo info)
-            {
-                string playerName = info.player.name;
-                return playerName is "Fabsol" or "Cirrus";
-            }
-
-            itemLoot.AddIf(getsCrystalHeartVodka, ModContent.ItemType<CrystalHeartVodka>());
         }
         private static readonly MethodInfo FargosSouls_DropDevianttsGift_Method = typeof(FargowiltasSouls.FargowiltasSouls).GetMethod("DropDevianttsGift", LumUtils.UniversalBindingFlags);
         public delegate void Orig_FargosSouls_DropDevianttsGift(Player player);
