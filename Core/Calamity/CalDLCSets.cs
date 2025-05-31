@@ -251,7 +251,6 @@ namespace FargowiltasCrossmod.Core.Calamity
                 BuffType<Plague>(),
                 BuffType<SulphuricPoisoning>(),
                 BuffType<SagePoison>(),
-                BuffType<KamiFlu>(),
                 BuffType<CrushDepth>(),
                 BuffType<RiptideDebuff>(),
                 BuffType<BrainRot>(),
