@@ -410,7 +410,6 @@ namespace FargowiltasCrossmod.Core.Calamity.Detours
         public delegate EmodeItemBalance.EModeChange Orig_EmodeBalancePerID(int itemType, ref float balanceNumber, ref string[] balanceTextKeys, ref string extra);
         internal static EmodeItemBalance.EModeChange EmodeBalancePerID_Detour(Orig_EmodeBalancePerID orig, int itemType, ref float balanceNumber, ref string[] balanceTextKeys, ref string extra)
         {
-            Main.NewText("running");
             if (CalDLCSets.GetValue(CalDLCSets.Items.DisabledEmodeChanges, itemType))
                 return EmodeItemBalance.EModeChange.None;
             return orig(itemType, ref balanceNumber, ref balanceTextKeys, ref extra);
