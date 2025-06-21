@@ -66,7 +66,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Detours
             HookHelper.ModifyMethodWithDetour(LifeForceVerticalSpeedMethod, LifeForceVerticalSpeed_Detour);
             HookHelper.ModifyMethodWithDetour(LifeForceHorizontalSpeedMethod, LifeForceHorizontalSpeed_Detour);
 
-            HookHelper.ModifyMethodWithDetour(EmodeBalance_Method, EmodeBalance_Detour);
+            HookHelper.ModifyMethodWithDetour(EmodeBalancePerID_Method, EmodeBalancePerID_Detour);
 
             HookHelper.ModifyMethodWithDetour(TryUnlimBuffMethod, TryUnlimBuff_Detour);
         }
@@ -406,13 +406,14 @@ namespace FargowiltasCrossmod.Core.Calamity.Detours
             }
         }
 
-        private static readonly MethodInfo EmodeBalance_Method = typeof(EmodeItemBalance).GetMethod("EmodeBalance", LumUtils.UniversalBindingFlags);
-        public delegate EmodeItemBalance.EModeChange Orig_EmodeBalance(ref Item item, ref float balanceNumber, ref string[] balanceTextKeys, ref string extra);
-        internal static EmodeItemBalance.EModeChange EmodeBalance_Detour(Orig_EmodeBalance orig, ref Item item, ref float balanceNumber, ref string[] balanceTextKeys, ref string extra)
+        private static readonly MethodInfo EmodeBalancePerID_Method = typeof(EmodeItemBalance).GetMethod("EmodeBalancePerID", LumUtils.UniversalBindingFlags);
+        public delegate EmodeItemBalance.EModeChange Orig_EmodeBalancePerID(int itemType, ref float balanceNumber, ref string[] balanceTextKeys, ref string extra);
+        internal static EmodeItemBalance.EModeChange EmodeBalancePerID_Detour(Orig_EmodeBalancePerID orig, int itemType, ref float balanceNumber, ref string[] balanceTextKeys, ref string extra)
         {
-            if (CalDLCSets.GetValue(CalDLCSets.Items.DisabledEmodeChanges, item.type))
+            Main.NewText("running");
+            if (CalDLCSets.GetValue(CalDLCSets.Items.DisabledEmodeChanges, itemType))
                 return EmodeItemBalance.EModeChange.None;
-            return orig(ref item, ref balanceNumber, ref balanceTextKeys, ref extra);
+            return orig(itemType, ref balanceNumber, ref balanceTextKeys, ref extra);
         }
 
         private static readonly MethodInfo TryUnlimBuffMethod = typeof(Fargowiltas.Items.FargoGlobalItem).GetMethod("TryUnlimBuff", LumUtils.UniversalBindingFlags);
