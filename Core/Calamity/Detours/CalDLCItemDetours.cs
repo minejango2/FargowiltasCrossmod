@@ -35,6 +35,7 @@ using System.Linq;
 using FargowiltasSouls;
 using FargowiltasSouls.Content.Items;
 using CalamityMod.Items.Potions;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
 
 namespace FargowiltasCrossmod.Core.Calamity.Detours
 {
@@ -69,6 +70,8 @@ namespace FargowiltasCrossmod.Core.Calamity.Detours
             HookHelper.ModifyMethodWithDetour(EmodeBalancePerID_Method, EmodeBalancePerID_Detour);
 
             HookHelper.ModifyMethodWithDetour(TryUnlimBuffMethod, TryUnlimBuff_Detour);
+
+            HookHelper.ModifyMethodWithDetour(ApprenticeSupportMethod, ApprenticeSupport_Detour);
         }
         private static readonly MethodInfo TungstenIncreaseWeaponSizeMethod = typeof(TungstenEffect).GetMethod("TungstenIncreaseWeaponSize", LumUtils.UniversalBindingFlags);
         public delegate float Orig_TungstenIncreaseWeaponSize(FargoSoulsPlayer modPlayer);
@@ -425,6 +428,23 @@ namespace FargowiltasCrossmod.Core.Calamity.Detours
 
             }
 
+        }
+        private static readonly MethodInfo ApprenticeSupportMethod = typeof(ApprenticeSupport).GetMethod("PostUpdateEquips", LumUtils.UniversalBindingFlags);
+        public delegate void Orig_PostUpdateEquips(ApprenticeSupport self, Player player);
+        internal static void ApprenticeSupport_Detour(Orig_PostUpdateEquips orig, ApprenticeSupport self, Player player)
+        {
+            var heldItem = player.HeldItem;
+            var rog = ModContent.GetInstance<RogueDamageClass>();
+            var calPlayer = player.Calamity();
+            var apprenticeSupport = ModContent.GetInstance<ApprenticeSupport>();
+            var fargoPlayer = player.FargoSouls();
+            if (heldItem.CountsAsClass(rog) && calPlayer.StealthStrikeAvailable() && player.HasEffect(apprenticeSupport))
+            {
+                if (fargoPlayer.ApprenticeItemCD > 0)
+                    fargoPlayer.ApprenticeItemCD--; // account for cooldown not running on return while a stealth strike is available
+                return;
+            }
+            orig(self, player);
         }
     }
 }
