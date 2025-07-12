@@ -80,6 +80,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.DesertScourge
         public int SlamCooldown = 0;
         public bool DoSlam = false;
         public int AttackIndex = 0;
+        public int PassiveTimer = 0;
 
         public int DespawnTimer = 0;
         public override void SendExtraAI(BitWriter bitWriter, BinaryWriter binaryWriter)
@@ -97,6 +98,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.DesertScourge
             binaryWriter.Write(CanDoSlam);
             binaryWriter.Write7BitEncodedInt(AttackIndex);
             binaryWriter.Write7BitEncodedInt(SlamCooldown);
+            binaryWriter.Write7BitEncodedInt(PassiveTimer);
         }
         public override void ReceiveExtraAI(BitReader bitReader, BinaryReader binaryReader)
         {
@@ -113,6 +115,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.DesertScourge
             CanDoSlam = binaryReader.ReadBoolean();
             AttackIndex = binaryReader.Read7BitEncodedInt();
             SlamCooldown = binaryReader.Read7BitEncodedInt();
+            PassiveTimer = binaryReader.Read7BitEncodedInt();
         }
 
         public override bool PreAI()
@@ -177,9 +180,9 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.DesertScourge
             if (NPC.localAI[2] == 0f)
                 NPC.localAI[2] = 2f; // Cannot summon nuisances unless otherwise specified
 
-            if (NPC.ai[2] < 20)
+            if (PassiveTimer < 20)
             {
-                NPC.ai[2]++;
+                PassiveTimer++;
                 return true;
             }
 
