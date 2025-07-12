@@ -374,7 +374,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
                 cal.ZoneSulphur ||
                 cal.ZoneSunkenSea ||
                 cal.ZoneAstral && !spawnInfo.Player.PillarZone();
-            if (calamityBiomeZone || pool[0] == 0)
+            if (calamityBiomeZone || !pool.TryGetValue(0, out float pool0) || pool0 == 0)
                 return;
             orig(self, pool, spawnInfo);
 
