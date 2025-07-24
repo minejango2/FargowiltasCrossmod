@@ -15,7 +15,7 @@ namespace FargowiltasCrossmod.Content.Common.Bosses.Mutant
     [ExtendsFromMod(ModCompatibility.Calamity.Name)]
     public class DLCMutantFishronRitual : ModProjectile
     {
-        public override string Texture => "FargowiltasSouls/Content/Projectiles/Masomode/FishronRitual";
+        public override string Texture => "FargowiltasSouls/Content/Projectiles/Masomode/Bosses/DukeFishron/FishronRitual";
 
         private const int safeRange = 150;
 
