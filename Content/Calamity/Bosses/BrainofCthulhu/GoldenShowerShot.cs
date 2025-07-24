@@ -1,4 +1,5 @@
 ﻿using FargowiltasSouls.Content.Projectiles.Masomode;
+using FargowiltasSouls.Content.Projectiles.Masomode.Bosses.BrainOfCthulhu;
 using System;
 using System.Collections.Generic;
 using System.Linq;

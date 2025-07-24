@@ -15,9 +15,9 @@ using CalamityMod.Items.Accessories.Vanity;
 using CalamityMod.Items.LoreItems;
 using CalamityMod.Items.Pets;
 using FargowiltasSouls.Content.Items.Misc;
-using Fargowiltas.Items.Explosives;
+using Fargowiltas.Content.Items.Explosives;
 using FargowiltasSouls.Content.Items.Accessories.Masomode;
-using Fargowiltas.Items.Tiles;
+using Fargowiltas.Content.Items.Tiles;
 using CalamityMod.Walls;
 using CalamityMod.Tiles.Abyss;
 using CalamityMod.Tiles.FurnitureAcidwood;
@@ -229,7 +229,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Detours
             return;
         }
 
-        private static readonly MethodInfo Instahouse_GetTiles_Method = typeof(Fargowiltas.Projectiles.Explosives.AutoHouseProj).GetMethod("GetTiles", LumUtils.UniversalBindingFlags);
+        private static readonly MethodInfo Instahouse_GetTiles_Method = typeof(Fargowiltas.Content.Projectiles.Explosives.AutoHouseProj).GetMethod("GetTiles", LumUtils.UniversalBindingFlags);
         public delegate void Orig_Instahouse_GetTiles(Player player, out int wallType, out int tileType, out int platformStyle, out bool moddedPlatform);
         internal static void Instahouse_GetTiles_Detour(Orig_Instahouse_GetTiles orig, Player player, out int wallType, out int tileType, out int platformStyle, out bool moddedPlatform)
         {
@@ -270,7 +270,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Detours
                 moddedPlatform = true;
             }
         }
-        private static readonly MethodInfo Instahouse_GetFurniture_Method = typeof(Fargowiltas.Projectiles.Explosives.AutoHouseProj).GetMethod("GetFurniture", LumUtils.UniversalBindingFlags);
+        private static readonly MethodInfo Instahouse_GetFurniture_Method = typeof(Fargowiltas.Content.Projectiles.Explosives.AutoHouseProj).GetMethod("GetFurniture", LumUtils.UniversalBindingFlags);
         public delegate void Orig_Instahouse_GetFurniture(Player player, out int doorStyle, out int chairStyle, out int tableStyle, out int torchStyle);
         internal static void Instahouse_GetFurniture_Detour(Orig_Instahouse_GetFurniture orig, Player player, out int doorStyle, out int chairStyle, out int tableStyle, out int torchStyle)
         {
@@ -418,7 +418,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Detours
             return orig(itemType, ref balanceNumber, ref balanceTextKeys, ref extra);
         }
 
-        private static readonly MethodInfo TryUnlimBuffMethod = typeof(Fargowiltas.Items.FargoGlobalItem).GetMethod("TryUnlimBuff", LumUtils.UniversalBindingFlags);
+        private static readonly MethodInfo TryUnlimBuffMethod = typeof(Fargowiltas.Content.Items.FargoGlobalItem).GetMethod("TryUnlimBuff", LumUtils.UniversalBindingFlags);
         public delegate void Orig_TryUnlimBuff(Item item, Player player);
         internal static void TryUnlimBuff_Detour(Orig_TryUnlimBuff orig, Item item, Player player)
         {

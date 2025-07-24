@@ -46,8 +46,8 @@ using CalamityMod.Projectiles;
 using CalamityMod.Systems;
 using CalamityMod.UI.DraedonSummoning;
 using CalamityMod.World;
-using Fargowiltas.Items.CaughtNPCs;
-using Fargowiltas.NPCs;
+using Fargowiltas.Content.Items.CaughtNPCs;
+using Fargowiltas.Content.NPCs;
 using FargowiltasCrossmod.Content.Calamity.Bosses.Crabulon;
 using FargowiltasCrossmod.Content.Calamity.Bosses.Cryogen;
 using FargowiltasCrossmod.Content.Calamity.Bosses.Perforators;
@@ -306,7 +306,6 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
             CalamityLists.debuffList.Add(BuffType<BloodthirstyBuff>());
             CalamityLists.debuffList.Add(BuffType<BaronsBurdenBuff>());
             CalamityLists.debuffList.Add(BuffType<ClippedWingsBuff>());
-            CalamityLists.debuffList.Add(BuffType<CrippledBuff>());
             CalamityLists.debuffList.Add(BuffType<CurseoftheMoonBuff>());
             CalamityLists.debuffList.Add(BuffType<DefenselessBuff>());
             CalamityLists.debuffList.Add(BuffType<FlamesoftheUniverseBuff>());
@@ -333,7 +332,6 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
             CalamityLists.debuffList.Add(BuffType<OceanicMaulBuff>());
             CalamityLists.debuffList.Add(BuffType<OiledBuff>());
             CalamityLists.debuffList.Add(BuffType<PurgedBuff>());
-            CalamityLists.debuffList.Add(BuffType<PurifiedBuff>());
             CalamityLists.debuffList.Add(BuffType<ReverseManaFlowBuff>());
             CalamityLists.debuffList.Add(BuffType<RottingBuff>());
             CalamityLists.debuffList.Add(BuffType<SmiteBuff>());
@@ -347,7 +345,6 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
             CalamityLists.debuffList.Add(BuffType<BerserkerInstallBuff>());
             CalamityLists.debuffList.Add(BuffType<HolyPriceBuff>());
             CalamityLists.debuffList.Add(BuffType<BrainOfConfusionBuff>());
-            CalamityLists.debuffList.Add(BuffType<LihzahrdCurseBuff>());
             CalamityLists.debuffList.Add(BuffType<RushJobBuff>());
             CalamityLists.debuffList.Add(BuffType<TwinsInstallBuff>());
             CalamityLists.debuffList.Add(BuffType<SnowstormCDBuff>());

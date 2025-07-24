@@ -1,7 +1,7 @@
 ﻿using CalamityMod.Items.SummonItems;
 using CalamityMod.NPCs.Ravager;
-using Fargowiltas.Items.Summons;
-using Fargowiltas.Projectiles;
+using Fargowiltas.Content.Items.Summons;
+using Fargowiltas.Content.Projectiles;
 using FargowiltasCrossmod.Core;
 using Microsoft.Xna.Framework;
 using Terraria;

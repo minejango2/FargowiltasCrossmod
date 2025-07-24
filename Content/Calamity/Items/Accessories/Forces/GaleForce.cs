@@ -58,7 +58,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Items.Accessories.Forces
             recipe.AddIngredient(ModContent.ItemType<StatigelEnchant>(), 1);
             recipe.AddIngredient(ModContent.ItemType<SulphurEnchant>(), 1);
             recipe.AddIngredient(ModContent.ItemType<VictideEnchant>(), 1);
-            recipe.AddTile(ModContent.TileType<Fargowiltas.Items.Tiles.CrucibleCosmosSheet>());
+            recipe.AddTile(ModContent.TileType<Fargowiltas.Content.Items.Tiles.CrucibleCosmosSheet>());
             recipe.Register();
         }
         

@@ -22,12 +22,12 @@ using CalamityMod.Items.Weapons.Summon;
 using CalamityMod.Tiles.Furniture;
 using Fargowiltas;
 using Fargowiltas.Common.Configs;
-using Fargowiltas.Items.Misc;
-using Fargowiltas.Items.Summons;
-using Fargowiltas.Items.Summons.Deviantt;
-using Fargowiltas.Items.Summons.Mutant;
-using Fargowiltas.Items.Summons.SwarmSummons;
-using Fargowiltas.Items.Summons.VanillaCopy;
+using Fargowiltas.Content.Items.Misc;
+using Fargowiltas.Content.Items.Summons;
+using Fargowiltas.Content.Items.Summons.Deviantt;
+using Fargowiltas.Content.Items.Summons.Mutant;
+using Fargowiltas.Content.Items.Summons.SwarmSummons;
+using Fargowiltas.Content.Items.Summons.VanillaCopy;
 using FargowiltasCrossmod.Content.Calamity;
 using FargowiltasCrossmod.Content.Calamity.Items.Accessories;
 using FargowiltasCrossmod.Content.Calamity.Items.Accessories.Enchantments;
@@ -497,12 +497,8 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
                 slot.DyeItem = new();
                 //making dummy items because nulling ModAccessorySlot items crashes the game because of course it does
             }
-            ModAccessorySlot eSlot0 = LoaderManager.Get<AccessorySlotLoader>().Get(ModContent.GetInstance<EModeAccessorySlot0>().Type, Player);
-            ModAccessorySlot eSlot1 = LoaderManager.Get<AccessorySlotLoader>().Get(ModContent.GetInstance<EModeAccessorySlot1>().Type, Player);
-            ModAccessorySlot eSlot2 = LoaderManager.Get<AccessorySlotLoader>().Get(ModContent.GetInstance<EModeAccessorySlot2>().Type, Player);
-            DropSlot(ref eSlot0);
-            DropSlot(ref eSlot1);
-            DropSlot(ref eSlot2);
+            ModAccessorySlot eSlot = LoaderManager.Get<AccessorySlotLoader>().Get(ModContent.GetInstance<EModeAccessorySlot>().Type, Player);
+            DropSlot(ref eSlot);
         }
     }
 }

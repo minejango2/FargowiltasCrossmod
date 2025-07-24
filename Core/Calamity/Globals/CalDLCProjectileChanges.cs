@@ -13,7 +13,7 @@ using CalamityMod.Projectiles.Ranged;
 using CalamityMod.Projectiles.Summon;
 using CalamityMod.Projectiles.Typeless;
 using CalamityMod.World;
-using Fargowiltas.NPCs;
+using Fargowiltas.Content.NPCs;
 using Fargowiltas;
 using FargowiltasCrossmod.Content.Calamity.Bosses.HiveMind;
 using FargowiltasCrossmod.Content.Calamity.Projectiles;
@@ -39,6 +39,8 @@ using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using FargowiltasSouls.Content.Projectiles.Masomode.Environment;
+using FargowiltasSouls.Content.Projectiles.Masomode.Bosses.Plantera;
 
 namespace FargowiltasCrossmod.Core.Calamity.Globals
 {

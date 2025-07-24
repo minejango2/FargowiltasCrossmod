@@ -38,6 +38,14 @@ using FargowiltasSouls.Content.Bosses.Lifelight;
 using FargowiltasSouls.Content.Bosses.Champions.Cosmos;
 using CalamityMod.Items.Tools;
 using CalamityMod.Items.Weapons.Typeless;
+using FargowiltasSouls.Content.Projectiles.Masomode.Accessories.VerdantDoomsayerMask;
+using FargowiltasSouls.Content.Projectiles.Masomode.Bosses.MechanicalBosses;
+using FargowiltasSouls.Content.Projectiles.Masomode.Bosses.WallOfFlesh;
+using FargowiltasSouls.Content.Projectiles.Masomode.Bosses.Plantera;
+using FargowiltasSouls.Content.Projectiles.Masomode.Bosses.Golem;
+using FargowiltasSouls.Content.Projectiles.Masomode.Bosses.DukeFishron;
+using FargowiltasSouls.Content.Projectiles.Masomode.Bosses.LunaticCultist;
+using FargowiltasSouls.Content.Projectiles.Masomode.Bosses.MoonLord;
 
 namespace FargowiltasCrossmod.Core.Calamity
 {

@@ -1,7 +1,7 @@
 ﻿using CalamityMod;
 using CalamityMod.Events;
 using CalamityMod.Skies;
-using Fargowiltas.NPCs;
+using Fargowiltas.Content.NPCs;
 using FargowiltasCrossmod.Core.Calamity;
 using FargowiltasCrossmod.Core.Common;
 using FargowiltasSouls.Core.Systems;

@@ -1,8 +1,7 @@
 ﻿using CalamityMod;
 using CalamityMod.Items.Accessories;
 using CalamityMod.Items.Weapons.Rogue;
-using Fargowiltas.Items.Tiles;
-using FargowiltasCrossmod.Content.Calamity.Items.Accessories.Essences;
+using Fargowiltas.Content.Items.Tiles;
 using FargowiltasCrossmod.Content.Calamity.Toggles;
 using FargowiltasCrossmod.Core;
 using FargowiltasSouls.Content.Items.Accessories.Souls;
@@ -35,7 +34,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Items.Accessories.Souls
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient<OutlawsEssence>()
+                .AddIngredient<RogueEmblem>()
                 .AddIngredient<EclipseMirror>()
                 .AddIngredient<Nanotech>()
 
