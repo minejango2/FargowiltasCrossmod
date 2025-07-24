@@ -1,5 +1,5 @@
 ﻿using FargowiltasCrossmod.Core.Calamity;
-using FargowiltasCrossmod.Core.Common.InverseKinematics;
+using FargowiltasSouls.Common.InverseKinematics;
 using Luminance.Common.Utilities;
 using Microsoft.Xna.Framework;
 using System;
