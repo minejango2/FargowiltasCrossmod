@@ -254,6 +254,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
                         break;
                     case ProjectileID.CultistBossIceMist:
                         {
+                            /*
                             if (CalDLCWorldSavingSystem.EternityDeath && projectile.ai[1] == 1)
                             {
                                 int p = Player.FindClosest(projectile.position, projectile.width, projectile.height);
@@ -268,6 +269,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
                                     projectile.velocity = new Vector2(projectile.velocity.Length(), 0).RotatedBy(projectile.velocity.ToRotation().AngleTowards(projectile.AngleTo(Main.player[p].Center), 0.04f));
                                 }
                             }
+                            */
                         }
                         break;
                 }

@@ -492,8 +492,8 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
                 {
                     if (WorldSavingSystem.EternityMode)
                         npc.scale = 1f;
-                    if (CalDLCWorldSavingSystem.EternityDeath)
-                        npc.scale = 1.4f;
+                    //if (CalDLCWorldSavingSystem.EternityDeath)
+                    //    npc.scale = 1.4f;
                 }
             }
             //setdefaultsbeforelookupsarebuilt error
