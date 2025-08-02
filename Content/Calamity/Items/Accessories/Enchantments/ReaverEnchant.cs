@@ -31,7 +31,7 @@ using FargowiltasSouls;
 using FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.SolarEclipse;
 using CalamityMod.Buffs.StatBuffs;
 using CalamityMod.Projectiles.Typeless;
-using FargowiltasSouls.Content.Items.Accessories.Masomode;
+using FargowiltasSouls.Content.Items.Accessories;
 
 namespace FargowiltasCrossmod.Content.Calamity.Items.Accessories.Enchantments
 {

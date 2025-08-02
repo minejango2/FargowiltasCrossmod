@@ -1,5 +1,6 @@
 ﻿using CalamityMod.NPCs.CalClone;
 using FargowiltasSouls;
+using FargowiltasSouls.Assets.Textures;
 using Luminance.Common.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -74,7 +75,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.CalamitasClone
             Color color = Color.Red;
 
             Main.spriteBatch.UseBlendState(BlendState.Additive);
-            Texture2D star = ModContent.Request<Texture2D>("FargowiltasSouls/Assets/Effects/LifeStar", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
+            Texture2D star = FargoAssets.GetTexture2D("Effects", "LifeStar").Value;
             Rectangle rect = new(0, 0, star.Width, star.Height);
             float scale = Projectile.scale * Main.rand.NextFloat(1.5f, 3f);
             Vector2 origin = new((star.Width / 2) + scale, (star.Height / 2) + scale);

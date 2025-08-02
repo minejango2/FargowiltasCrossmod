@@ -10,7 +10,7 @@ using FargowiltasCrossmod.Core.Common;
 using FargowiltasSouls;
 using FargowiltasSouls.Content.Items.Accessories.Enchantments;
 using FargowiltasSouls.Content.Items.Accessories.Forces;
-using FargowiltasSouls.Content.Items.Accessories.Masomode;
+using FargowiltasSouls.Content.Items.Accessories;
 using FargowiltasSouls.Content.Items.Accessories.Souls;
 using FargowiltasSouls.Content.Items.Weapons.FinalUpgrades;
 using FargowiltasSouls.Content.Items.Weapons.SwarmDrops;
@@ -24,6 +24,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
+using FargowiltasSouls.Content.Items.Accessories.Eternity;
 
 namespace FargowiltasCrossmod.Core.Calamity.Globals
 {
@@ -34,7 +35,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
         public static float BalanceChange(Item item)
         {
 
-            if (item.type == ItemType<TheDestroyer>() || item.type == ItemType<RefractorBlaster2>() || item.type == ItemType<StaffOfUnleashedOcean>() || item.type == ItemType<OpticStaffEX>())
+            if (item.type == ItemType<TheDestroyer>() || item.type == ItemType<DiffractorBlaster>() || item.type == ItemType<StaffOfUnleashedOcean>() || item.type == ItemType<OmniscienceStaff>())
                 return 1.5f;
             if (DLCSets.GetValue(DLCSets.Items.AbomTierFargoWeapon, item.type))
                 return 2f;

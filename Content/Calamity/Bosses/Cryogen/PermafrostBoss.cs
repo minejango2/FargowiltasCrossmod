@@ -27,7 +27,7 @@ using System.IO;
 using FargowiltasCrossmod.Core.Common;
 using FargowiltasCrossmod.Core.Calamity.Globals;
 using CalamityMod.Events;
-using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Content.Buffs.Eternity;
 using Luminance.Common.Utilities;
 
 namespace FargowiltasCrossmod.Content.Calamity.Bosses.Cryogen

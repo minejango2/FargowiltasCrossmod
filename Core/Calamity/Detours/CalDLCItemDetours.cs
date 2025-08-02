@@ -16,7 +16,7 @@ using CalamityMod.Items.LoreItems;
 using CalamityMod.Items.Pets;
 using FargowiltasSouls.Content.Items.Misc;
 using Fargowiltas.Content.Items.Explosives;
-using FargowiltasSouls.Content.Items.Accessories.Masomode;
+using FargowiltasSouls.Content.Items.Accessories;
 using Fargowiltas.Content.Items.Tiles;
 using CalamityMod.Walls;
 using CalamityMod.Tiles.Abyss;
@@ -36,6 +36,7 @@ using FargowiltasSouls;
 using FargowiltasSouls.Content.Items;
 using CalamityMod.Items.Potions;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Content.Items.Accessories.Eternity;
 
 namespace FargowiltasCrossmod.Core.Calamity.Detours
 {
@@ -54,6 +55,8 @@ namespace FargowiltasCrossmod.Core.Calamity.Detours
         {
             HookHelper.ModifyMethodWithDetour(TungstenIncreaseWeaponSizeMethod, TungstenIncreaseWeaponSize_Detour);
             HookHelper.ModifyMethodWithDetour(TungstenNeverAffectsProjMethod, TungstenNeverAffectsProj_Detour);
+
+            HookHelper.ModifyMethodWithDetour(OriDotModifierMethod, OriDotModifier_Detour);
 
             HookHelper.ModifyMethodWithDetour(StarterBag_ModifyItemLoot_Method, StarterBag_ModifyItemLoot_Detour);
             HookHelper.ModifyMethodWithDetour(FargosSouls_DropDevianttsGift_Method, FargosSouls_DropDevianttsGift_Detour);
@@ -93,6 +96,24 @@ namespace FargowiltasCrossmod.Core.Calamity.Detours
             bool value = orig(projectile);
             if (CalDLCSets.Projectiles.TungstenExclude[projectile.type])
                 return true;
+            return value;
+        }
+
+        private static readonly MethodInfo OriDotModifierMethod = typeof(OrichalcumEffect).GetMethod("OriDotModifier", LumUtils.UniversalBindingFlags);
+        public delegate float Orig_OriDotModifier(NPC npc, FargoSoulsPlayer modPlayer);
+        internal static float OriDotModifier_Detour(Orig_OriDotModifier orig, NPC npc, FargoSoulsPlayer modPlayer)
+        {
+            float value = orig(npc, modPlayer);
+
+            value = 1.5f;
+            if (modPlayer.Player.ForceEffect<OrichalcumEffect>())
+            {
+                value = 2f;
+            }
+            if (npc.Calamity().shellfishVore > 0)
+            {
+                value = ((value - 1) / 2) + 1; // halved bonus
+            }
             return value;
         }
 

@@ -71,7 +71,7 @@ using FargowiltasSouls.Content.Bosses.MutantBoss;
 using FargowiltasSouls.Content.Bosses.TrojanSquirrel;
 using FargowiltasSouls.Content.Buffs;
 using FargowiltasSouls.Content.Buffs.Boss;
-using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Content.Buffs.Eternity;
 using FargowiltasSouls.Content.Buffs.Souls;
 using FargowiltasSouls.Content.Items;
 using FargowiltasSouls.Content.NPCs.EternityModeNPCs;
@@ -331,7 +331,6 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
             CalamityLists.debuffList.Add(BuffType<NullificationCurseBuff>());
             CalamityLists.debuffList.Add(BuffType<OceanicMaulBuff>());
             CalamityLists.debuffList.Add(BuffType<OiledBuff>());
-            CalamityLists.debuffList.Add(BuffType<PurgedBuff>());
             CalamityLists.debuffList.Add(BuffType<ReverseManaFlowBuff>());
             CalamityLists.debuffList.Add(BuffType<RottingBuff>());
             CalamityLists.debuffList.Add(BuffType<SmiteBuff>());

@@ -28,7 +28,6 @@ using FargowiltasCrossmod.Content.Calamity.Items.Accessories.Forces;
 using FargowiltasSouls;
 using FargowiltasCrossmod.Core.Calamity.Globals;
 using FargowiltasCrossmod.Core.Common;
-using FargowiltasSouls.Content.Projectiles.BossWeapons;
 using FargowiltasCrossmod.Content.Calamity.Toggles;
 using CalamityMod.Items.Weapons.Rogue;
 using FargowiltasSouls.Content.UI.Elements;

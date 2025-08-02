@@ -4,7 +4,7 @@ using CalamityMod.Buffs.StatDebuffs;
 using CalamityMod.Projectiles.Magic;
 using CalamityMod.Projectiles.Melee;
 using CalamityMod.Projectiles.Summon;
-using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Content.Buffs.Eternity;
 using FargowiltasSouls.Content.Buffs.Souls;
 using FargowiltasSouls.Content.Buffs;
 using FargowiltasSouls.Content.Projectiles.Masomode;
@@ -38,14 +38,18 @@ using FargowiltasSouls.Content.Bosses.Lifelight;
 using FargowiltasSouls.Content.Bosses.Champions.Cosmos;
 using CalamityMod.Items.Tools;
 using CalamityMod.Items.Weapons.Typeless;
-using FargowiltasSouls.Content.Projectiles.Masomode.Accessories.VerdantDoomsayerMask;
+using FargowiltasSouls.Content.Projectiles.Accessories.VerdantDoomsayerMask;
 using FargowiltasSouls.Content.Projectiles.Masomode.Bosses.MechanicalBosses;
-using FargowiltasSouls.Content.Projectiles.Masomode.Bosses.WallOfFlesh;
-using FargowiltasSouls.Content.Projectiles.Masomode.Bosses.Plantera;
-using FargowiltasSouls.Content.Projectiles.Masomode.Bosses.Golem;
-using FargowiltasSouls.Content.Projectiles.Masomode.Bosses.DukeFishron;
-using FargowiltasSouls.Content.Projectiles.Masomode.Bosses.LunaticCultist;
-using FargowiltasSouls.Content.Projectiles.Masomode.Bosses.MoonLord;
+using FargowiltasSouls.Content.Projectiles.Eternity.Bosses.WallOfFlesh;
+using FargowiltasSouls.Content.Projectiles.Eternity.Bosses.Plantera;
+using FargowiltasSouls.Content.Projectiles.Eternity.Bosses.Golem;
+using FargowiltasSouls.Content.Projectiles.Eternity.Bosses.DukeFishron;
+using FargowiltasSouls.Content.Projectiles.Eternity.Bosses.LunaticCultist;
+using FargowiltasSouls.Content.Projectiles.Eternity.Bosses.MoonLord;
+using FargowiltasSouls.Content.Buffs.Eternity;
+using FargowiltasSouls.Content.Projectiles.Eternity;
+using FargowiltasSouls.Content.Projectiles.Eternity.Bosses.MechanicalBosses;
+using Fargowiltas.Content.Items.Vanity;
 
 namespace FargowiltasCrossmod.Core.Calamity
 {
@@ -354,7 +358,6 @@ namespace FargowiltasCrossmod.Core.Calamity
                 ProjectileType<LifeRuneRetractHitbox>(),
                 ProjectileType<LifeRunespearExplosion>(),
                 ProjectileType<LifeRunespearHitbox>(),
-                ProjectileType<LifeScar>(),
                 ProjectileType<PlanteraSpikevine>(),
                 ProjectileType<PlanteraTentacle>(),
                 ProjectileType<GolemBoulder>(),

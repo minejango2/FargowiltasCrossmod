@@ -1,11 +1,12 @@
-﻿using System;
-using FargowiltasCrossmod.Core;
+﻿using FargowiltasCrossmod.Core;
 using FargowiltasSouls;
+using FargowiltasSouls.Assets.Textures;
 using FargowiltasSouls.Content.Bosses.MutantBoss;
 using FargowiltasSouls.Content.Buffs.Boss;
-using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Content.Buffs.Eternity;
 using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -15,7 +16,7 @@ namespace FargowiltasCrossmod.Content.Common.Bosses.Mutant
     [ExtendsFromMod(ModCompatibility.Calamity.Name)]
     public class DLCMutantFishronRitual : ModProjectile
     {
-        public override string Texture => "FargowiltasSouls/Content/Projectiles/Masomode/Bosses/DukeFishron/FishronRitual";
+        public override string Texture => FargoAssets.GetAssetString("Content/Projectiles/Eternity/Bosses/DukeFishron", "FishronRitual");
 
         private const int safeRange = 150;
 
