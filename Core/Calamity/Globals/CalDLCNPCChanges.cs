@@ -519,28 +519,6 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
 
         }
 
-        public override void UpdateLifeRegen(NPC npc, ref int damage)
-        {
-            Player player = Main.player[Main.myPlayer];
-            if (player.HasEffect<OrichalcumEffect>() && npc.lifeRegen < 0)
-            {
-                float modifier = 1f;
-                if (npc.Calamity().shellfishVore > 0) //nerf with shellfish thing
-                {
-                    modifier = 0.5f;
-                }
-                if (player.FargoSouls().ForceEffect<OrichalcumEnchant>())
-                {
-                    modifier -= 0.0285f; //roughly makes it 2x but might not be exact
-                }
-
-                npc.lifeRegen = (int)(npc.lifeRegen * modifier);
-                damage = (int)(damage * modifier);
-
-
-            }
-            base.UpdateLifeRegen(npc, ref damage);
-        }
         //all this bullshit just so tmod doesnt JITException a method that is supposed to be ignored >:(
         public IItemDropRuleCondition PostDog => DropHelper.PostDoG();
 
