@@ -1667,11 +1667,6 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
             {
                 Mod calamity = ModCompatibility.Calamity.Mod;
 
-                if (npc.Calamity().newAI[1] == 0f) //SyncExtraAI immediately after spawn
-                {
-                    npc.SyncExtraAI();
-                }
-
                 calamity.Call("SetCalamityAI", npc, 1, 600f); //DRIncreaseTime in Calamity Destroyer and Calamity EoW - fix destroyer invincible bug
                 calamity.Call("SetCalamityAI", npc, 2, 0f);
 
